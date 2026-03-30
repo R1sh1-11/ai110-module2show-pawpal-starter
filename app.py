@@ -76,8 +76,15 @@ else:
     if not all_tasks:
         st.info("No tasks yet. Add some above!")
     else:
+        st.markdown("### Filter Tasks")
+        filter_completed = st.checkbox("Show only incomplete tasks")
+
         if st.button("Generate Schedule"):
-            sorted_tasks = scheduler.sort_tasks("time")
+            if filter_completed:
+                sorted_tasks = scheduler.filter_tasks({"completed": False})
+                sorted_tasks = sorted(sorted_tasks, key=lambda t: t.time)
+            else:
+                sorted_tasks = scheduler.sort_tasks("time")
             conflicts = scheduler.detect_conflicts()
 
             st.markdown("### Sorted by Time")
