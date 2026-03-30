@@ -46,6 +46,10 @@ Yes, two changes were made after an AI review of the skeleton:
 
 - Describe one tradeoff your scheduler makes.
 - Why is that tradeoff reasonable for this scenario?
+My scheduler only detects exact time conflicts rather than overlapping 
+durations. This is a reasonable tradeoff for simplicity and most pet care 
+tasks are scheduled at distinct times and exact conflicts are the most 
+common real-world mistake to catch.
 
 ---
 
