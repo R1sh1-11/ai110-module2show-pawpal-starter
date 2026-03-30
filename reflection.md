@@ -3,6 +3,9 @@
 ## 1. System Design
 
 **a. Initial design**
+Enter owner and pet info — the user provides basic details about themselves and their pet
+Add and edit care tasks — the user creates tasks like walks, feeding, or meds with a duration and priority
+Generate a daily schedule — the app produces a planned schedule based on constraints and priorities, and explains why it chose that plan
 
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
