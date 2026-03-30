@@ -55,7 +55,9 @@ PawPal+ includes the following intelligent scheduling features:
 
 Run the test suite with:
 
+```bash
 python -m pytest
+```
 
 ### What the tests cover:
 - Task completion: verifies mark_completed() correctly updates status
@@ -67,3 +69,16 @@ python -m pytest
 ### Confidence Level: ⭐⭐⭐⭐
 All 5 tests pass. Edge cases like duplicate recurring tasks and timezone 
 handling would be the next things to test.
+
+## 📸 Demo
+
+![PawPal App](app.png)
+
+## ✨ Features
+
+- Enter owner and pet info
+- Add care tasks with time, duration, priority, and frequency
+- Generate a daily schedule sorted by time
+- Filter to show only incomplete tasks
+- Detect scheduling conflicts with a warning
+- Auto-reschedule recurring daily/weekly/monthly tasks
