@@ -3,17 +3,35 @@
 ## 1. System Design
 
 **a. Initial design**
-Enter owner and pet info — the user provides basic details about themselves and their pet
-Add and edit care tasks — the user creates tasks like walks, feeding, or meds with a duration and priority
-Generate a daily schedule — the app produces a planned schedule based on constraints and priorities, and explains why it chose that plan
-
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
+The three core user actions I identified are:
+- Enter owner and pet info — the user provides basic details about themselves and their pet
+- Add and edit care tasks — the user creates tasks like walks, feeding, or meds 
+  with a duration and priority
+- Generate a daily schedule — the app produces a planned schedule based on 
+  constraints and priorities and explains why it chose that plan
+
+I designed four classes:
+- Owner: holds the user's name and manages a list of Pet objects
+- Pet: holds a pet's name, species, and age, and manages a list of Task objects
+- Task: represents a single care activity with a description, time, duration, 
+  priority, frequency, and completion status. Uses a unique task_id for identity.
+- Scheduler: takes an Owner and handles all smart logic — sorting, filtering, 
+  conflict detection, and recurring task scheduling
+
 
 **b. Design changes**
 
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
+
+Yes, two changes were made after an AI review of the skeleton:
+
+1. Added a task_id field (uuid) to Task so tasks can be reliably identified, 
+   compared, and removed without ambiguity.
+2. Changed sort_tasks() to use Literal["time", "priority"] instead of a plain 
+   string to prevent invalid inputs and make the API clearer.
 
 ---
 

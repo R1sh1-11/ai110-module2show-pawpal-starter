@@ -1,7 +1,9 @@
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from enum import Enum
 from typing import List, Optional, Tuple, Dict
+from typing import Literal
 
 class Frequency(Enum):
     ONCE = "once"
@@ -18,6 +20,7 @@ class Task:
     priority: int
     frequency: Frequency
     completed: bool = False
+    task_id: str = field(default_factory=lambda: str(uuid.uuid4()))
 
     def mark_completed(self) -> None:
         pass
@@ -62,11 +65,12 @@ class Scheduler:
     def __init__(self, owner: Owner):
         self.owner = owner
 
-    def sort_tasks(self, criteria: str) -> List[Task]:
+    def sort_tasks(self, criteria: Literal["time", "priority"]) -> List[Task]:
         pass
 
     def filter_tasks(self, criteria: Dict[str, object]) -> List[Task]:
         pass
+    
 
     def detect_conflicts(self) -> List[Tuple[Task, Task]]:
         pass
