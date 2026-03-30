@@ -72,6 +72,7 @@ I used AI for design brainstorming (generating the UML diagram), scaffolding cla
 - How did you evaluate or verify what the AI suggested?
 
 I rejected the AI's suggestion to keep the if next_time > now check in schedule_recurring_tasks(). The AI added it to avoid scheduling tasks in the past, but it broke the recurring task test since the test used a fixed past date. I removed it after understanding why the test was failing and confirmed all 5 tests passed after the change.
+
 ---
 
 ## 4. Testing and Verification
@@ -97,6 +98,7 @@ These tests matter because they cover the core scheduling behaviors the app depe
 - What edge cases would you test next if you had more time?
 
 All 5 tests pass. I would next test edge cases like a pet with no tasks, duplicate recurring tasks being created on repeated calls, and tasks that span midnight causing false conflict detection.
+
 ---
 
 ## 5. Reflection
@@ -117,4 +119,4 @@ I would add the ability to mark tasks complete directly in the UI and trigger re
 
 - What is one important thing you learned about designing systems or working with AI on this project?
 
-AI is great at scaffolding and boilerplate but you still need to understand your own code to catch bugs. The failing recurring task test was caused by an AI assumption that seemed reasonable but didn't fit the actual use case. Being the lead architect means reviewing and questioning what AI generates, not just accepting it.
+AI is great at scaffolding but you still need to understand your own code to catch bugs. The failing recurring task test was caused by an AI assumption that seemed reasonable but didn't fit the actual use case. Being the human in the loop means reviewing and questioning what AI generates, not just accepting it.
